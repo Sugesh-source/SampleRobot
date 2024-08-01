@@ -11,7 +11,7 @@ ${browser_name}      headlesschrome
 
 *** Keywords ***
 Open the browser
-    Open Browser    ${url}     chrome
+    Open Browser    ${url}     headlesschrome
 
 Close browser session
     Close Browser
