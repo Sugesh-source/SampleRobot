@@ -17,7 +17,7 @@ Validate Unsuccessful login
 *** Keywords ***
 Open the browser
 #    Create Webdriver    Chrome    executable_path=/Users/sugantharamachandran/Documents/chromedriver
-    Open Browser       https://rahulshettyacademy.com/loginpagePractise/    chrome
+    Open Browser       https://rahulshettyacademy.com/loginpagePractise/    headlesschrome
 Fill the login form
     Input Text    id:username    sugantha
     Input Text    id:password    12345678
