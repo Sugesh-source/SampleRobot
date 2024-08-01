@@ -1,0 +1,49 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  ROBOT_TESTS_DIR: 'SampleRobot/Tests'  # Update this with the actual path
+  ROBOT_REPORTS_DIR: 'SampleRobot/Results'  # Update this with the actual path
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10.9'
+    addToPath: true
+    architecture: 'x64'
+- script: 
+    python -m pip install --upgrade pip
+    pip install robotframework
+    pip install robotframework-seleniumlibrary
+  displayName: 'Install dependencies'
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y wget unzip
+    wget -N https://chromedriver.storage.googleapis.com/$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip
+    sudo mv -f chromedriver /usr/local/bin/chromedriver
+    sudo chown root:root /usr/local/bin/chromedriver
+    sudo chmod 0755 /usr/local/bin/chromedriver
+    sudo apt-get install -y google-chrome-stable
+  displayName: 'Install Chrome and ChromeDriver'
+
+- script: |
+    robot -d $(ROBOT_REPORTS_DIR) $(ROBOT_TESTS_DIR)
+  displayName: 'Run Robot Framework tests'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(ROBOT_REPORTS_DIR)'
+    artifactName: 'TestResults'
+  displayName: 'Publish Test Results'
+
+
