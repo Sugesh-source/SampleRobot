@@ -36,6 +36,7 @@ steps:
   displayName: 'Install Chrome and ChromeDriver'
 
 - script: |
+    ls -la $(ROBOT_TESTS_DIR)
     robot -d $(ROBOT_REPORTS_DIR) $(ROBOT_TESTS_DIR)
   displayName: 'Run Robot Framework tests'
 
