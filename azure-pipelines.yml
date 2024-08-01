@@ -25,15 +25,19 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
+    echo "Installing Chrome"
     sudo apt-get update
-    sudo apt-get install -y wget unzip
-    wget -N https://chromedriver.storage.googleapis.com/$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
-    unzip chromedriver_linux64.zip
-    sudo mv -f chromedriver /usr/local/bin/chromedriver
-    sudo chown root:root /usr/local/bin/chromedriver
-    sudo chmod 0755 /usr/local/bin/chromedriver
     sudo apt-get install -y google-chrome-stable
-  displayName: 'Install Chrome and ChromeDriver'
+  displayName: 'Install Chrome'
+
+- script: |
+    echo "Installing ChromeDriver"
+    CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+    CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION})
+    wget -N https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip -d /usr/local/bin
+    rm chromedriver_linux64.zip
+  displayName: 'Install ChromeDriver'
 
 - script: |
     echo "Current directory:"
