@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  ROBOT_TESTS_DIR: 'SampleRobot/Tests'  # Update this with the actual path
-  ROBOT_REPORTS_DIR: 'SampleRobot/Results'  # Update this with the actual path
+  ROBOT_TESTS_DIR: 'SampleRobot/tree/main/Tests'  # Update this with the actual path
+  ROBOT_REPORTS_DIR: 'SampleRobot/tree/main/Results'  # Update this with the actual path
 
 steps:
 - task: UsePythonVersion@0
