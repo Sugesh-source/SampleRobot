@@ -8,7 +8,7 @@ ${expected_msg}    css:.alert-danger
 
 
 *** Test Cases ***
-Validate Unsuccessful login
+Sugantha Validate Unsuccessful login
     Open the browser
     Fill the login form
     Wait until it displays the error message
