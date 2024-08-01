@@ -34,13 +34,16 @@ steps:
 
 - script: |
     echo "Installing ChromeDriver"
-    CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+' | head -n1)
-    echo $(CHROME_VERSION)
-    CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION%.*}")
-    echo $(CHROME__DRIVER_VERSION)
-    wget -N "https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
-    unzip chromedriver_linux64.zip -d /usr/local/bin
-    rm chromedriver_linux64.zip
+    sudo apt-get update
+    sudo apt-get install -y wget unzip
+    wget -N https://chromedriver.storage.googleapis.com/$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+    unzip chromedriver_linux64.zip
+    sudo mv -f chromedriver /usr/local/bin/chromedriver
+    sudo chown root:root /usr/local/bin/chromedriver
+    sudo chmod 0755 /usr/local/bin/chromedriver
+    sudo apt-get install -y google-chrome-stable
+    echo "Installed ChromeDriver version:"
+    /usr/local/bin/chromedriver --version
   displayName: 'Install ChromeDriver'
   
 
