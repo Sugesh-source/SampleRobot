@@ -38,7 +38,7 @@ steps:
     sudo apt-get install -y wget unzip
     wget -N https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.26/linux64/chromedriver-linux64.zip
     unzip chromedriver-linux64.zip
-    sudo mv -f chromedriver /usr/local/bin/chromedriver
+    sudo mv -f chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
     sudo chown root:root /usr/local/bin/chromedriver
     sudo chmod 0755 /usr/local/bin/chromedriver
     echo "Installed ChromeDriver version:"
