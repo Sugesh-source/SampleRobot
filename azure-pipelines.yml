@@ -36,6 +36,13 @@ steps:
   displayName: 'Install Chrome and ChromeDriver'
 
 - script: |
+    echo "Current directory:"
+    pwd
+    echo "Listing root directory contents:"
+    ls -la
+    echo "Listing SampleRobot directory contents:"
+    ls -la SampleRobot
+    echo "Listing Tests directory contents:"
     ls -la $(ROBOT_TESTS_DIR)
     robot -d $(ROBOT_REPORTS_DIR) $(ROBOT_TESTS_DIR)
   displayName: 'Run Robot Framework tests'
