@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  ROBOT_TESTS_DIR: 'SampleRobot/Tests'
-  ROBOT_REPORTS_DIR: 'SampleRobot/Results'
+  ROBOT_TESTS_DIR: 'Tests'
+  ROBOT_REPORTS_DIR: 'Results'
 steps:
 - task: UsePythonVersion@0
   inputs:
