@@ -21,7 +21,7 @@ steps:
     architecture: 'x64'
 - script: 
     pip install robotframework && \
-    pip install robotframework-seleniumlibrary && \
+    pip install robotframework-seleniumlibrary
   displayName: 'Install dependencies'
 
 - script: |
