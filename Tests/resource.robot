@@ -7,7 +7,7 @@ ${url}        https://rahulshettyacademy.com/loginpagePractise/
 ${user_name}        rahulshettyacademy
 ${invalid_password}    12345678
 ${valid_password}    learning
-${browser_name}      chrome
+${browser_name}      headlesschrome
 
 *** Keywords ***
 Open the browser
