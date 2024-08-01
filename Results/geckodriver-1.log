@@ -1,0 +1,5 @@
+1722480654706	geckodriver	INFO	Listening on 127.0.0.1:61704
+1722480654829	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/tq/8flnv1m15tg62jgrgjhvddbc0000gn/T/rust_mozprofiledZTOrI"
+WebDriver BiDi listening on ws://127.0.0.1:61705
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:61705/devtools/browser/4fad93f2-4c1b-4277-871c-e5d9f65e7315
