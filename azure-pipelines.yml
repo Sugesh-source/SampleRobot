@@ -20,7 +20,6 @@ steps:
     addToPath: true
     architecture: 'x64'
 - script: 
-    pip install --upgrade pip
     pip install robotframework
     pip install robotframework-seleniumlibrary
   displayName: 'Install dependencies'
