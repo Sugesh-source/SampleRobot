@@ -43,7 +43,12 @@ steps:
     echo "Installed ChromeDriver version:"
     /usr/local/bin/chromedriver --version
   displayName: 'Install ChromeDriver'
-  
+
+# Debug step to print the value of the variable
+- script: |
+    echo "ROBOT_REPORTS_DIR is: $(ROBOT_REPORTS_DIR)"
+    ls -la $(ROBOT_REPORTS_DIR)
+  displayName: 'Debug Robot Reports Directory'
 
 - script: |
     echo "Current directory:"
