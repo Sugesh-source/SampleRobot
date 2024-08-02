@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  ROBOT_REPORTS_DIR: 'Results'
+
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -60,13 +63,6 @@ steps:
     robot -d $(ROBOT_REPORTS_DIR) $(ROBOT_TESTS_DIR)
   displayName: 'Run Robot Framework tests'
 
-# Debug step to print the value of the variable
-- script: |
-    echo ROBOT_REPORTS_DIR is: $(ROBOT_REPORTS_DIR)
-    # Use a temporary variable to remove quotes if present
-    REPORTS_DIR=$(echo $(ROBOT_REPORTS_DIR) | tr -d "'")
-    ls -la $REPORTS_DIR
-  displayName: 'Debug Robot Reports Directory'
 
 - task: PublishPipelineArtifact@1
   inputs:
